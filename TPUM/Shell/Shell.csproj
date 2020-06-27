@@ -6,11 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj" />
+    <ProjectReference Include="..\PresentationLayer\PresentationLayer.csproj" />
+    <ProjectReference Include="..\WebsocketServer\WebSocketServerLayer.csproj" />
   </ItemGroup>
 
 </Project>

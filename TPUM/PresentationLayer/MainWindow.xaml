@@ -61,7 +61,7 @@
                     </ScrollViewer>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
                         <Button  HorizontalAlignment="Center" Width="300" Content="Połącz z serwerem"
-                                 Command="{Binding ConnectToWebsocketCommand}" />
+                                 Command="{Binding ConnectToWebSocketCommand}" />
                     <StackPanel Width="30"></StackPanel>
                         <Button HorizontalAlignment="Center" Width="300" Content="Odśwież"
                             Command="{Binding FetchUsersCommand}" />

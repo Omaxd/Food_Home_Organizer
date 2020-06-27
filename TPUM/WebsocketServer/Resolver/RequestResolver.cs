@@ -5,7 +5,7 @@ using LogicLayer.Interfaces;
 using LogicLayer.Services;
 using Newtonsoft.Json;
 
-namespace WebsocketServer.Resolver
+namespace WebSocketServerLayer.Resolver
 {
 
     class RequestResolver

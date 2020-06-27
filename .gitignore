@@ -50,3 +50,16 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/DataLayer/bin/Debug/netstandard2.0
+/DataLayer/obj
+/TPUM/.vs/FoodHomeOrganizer/v16
+/TPUM/LogicLayer/bin/Debug/netcoreapp3.1
+/TPUM/LogicLayer/obj
+/TPUM/PresentationLayer/bin/Debug/netcoreapp3.1
+/TPUM/PresentationLayer/obj
+/TPUM/Shell/bin/Debug/netcoreapp3.1
+/TPUM/Shell/obj/Debug/netcoreapp3.1
+/TPUM/Shell/obj
+/TPUM/WebsocketServer/bin/Debug/netcoreapp3.1
+/TPUM/WebsocketServer/obj
+/TPUM/.vs/FoodHomeOrganizer/DesignTimeBuild/.dtbcache.v2

@@ -4,7 +4,7 @@ using LogicLayer.DataTransferObjects;
 using LogicLayer.ModelMapper;
 using Newtonsoft.Json;
 
-namespace WebsocketServer
+namespace WebSocketServerLayer
 {
     public class DailyInformationObserver : IObserver<InformationEvent>
     {

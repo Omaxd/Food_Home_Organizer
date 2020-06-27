@@ -2,7 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 
-namespace WebsocketServer
+namespace WebSocketServerLayer
 {
     internal class Program
     {

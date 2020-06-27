@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 
-namespace WebsocketServer
+namespace WebSocketServerLayer
 {
     public class WebSocketServer : IDisposable
     {
