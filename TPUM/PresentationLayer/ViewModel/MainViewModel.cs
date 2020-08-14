@@ -77,9 +77,9 @@ namespace PresentationLayer.ViewModel
         public ICommand ConnectToWebSocketCommand => new RelayCommand(CreateConnection);
         public ICommand FetchUsersCommand => new RelayCommand(FetchUsers);
         public ICommand FetchFoodsCommand => new RelayCommand(FetchFoods);
-        public ICommand InformationsCommand => new RelayCommand(FetchInformations);
+        public ICommand FetchInformationsCommand => new RelayCommand(FetchInformations);
 
-                public MainViewModel()
+        public MainViewModel()
         {
         }
 

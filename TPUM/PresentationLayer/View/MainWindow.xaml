@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PresentationLayer"
         xmlns:viewModel="clr-namespace:PresentationLayer.ViewModel"
         mc:Ignorable="d"
-        Title="MobileDevicesWebsocketCommunicatingApplicationSellingBooksAndBeingAmazing" Height="800" Width="1200"
+        Title="Food Organizer" Height="800" Width="1200"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -28,11 +28,13 @@
         <TabControl Grid.Column="0" Grid.ColumnSpan="2"  Background="#373533">
             <TabItem Header="Użytkownicy">
                 <Grid>
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="80" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <ScrollViewer Grid.Row="0" Margin="5" HorizontalScrollBarVisibility="Auto">
+                    <ScrollViewer Grid.Row="0" Margin="5,5,5,5" HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                         <DataGrid
                             Margin="5"
                             ItemsSource="{Binding Users}"
@@ -59,10 +61,15 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Grid Grid.Row="1" Height="100" Margin="20" VerticalAlignment="Top">
+                        <TextBlock Background="Gray" Text="{Binding CurrentInformation.Content}">
+
+                        </TextBlock>
+                    </Grid>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Margin="107,0,0,0" >
                         <Button  HorizontalAlignment="Center" Width="300" Content="Połącz z serwerem"
                                  Command="{Binding ConnectToWebSocketCommand}" />
-                    <StackPanel Width="30"></StackPanel>
+                        <StackPanel Width="30"></StackPanel>
                         <Button HorizontalAlignment="Center" Width="300" Content="Odśwież"
                             Command="{Binding FetchUsersCommand}" />
                     </StackPanel>
@@ -72,7 +79,8 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="80" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
                     <ScrollViewer Grid.Row="0" Margin="5" HorizontalScrollBarVisibility="Auto">
                         <DataGrid
@@ -105,7 +113,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
-                    <Button Grid.Row="1" HorizontalAlignment="Center" Width="200" Content="Odśwież"
+                    <Grid Grid.Row="1" Height="100" Margin="20" VerticalAlignment="Top">
+                        <TextBlock Background="Gray" Text="{Binding CurrentInformation.Content}">
+
+                        </TextBlock>
+                    </Grid>
+
+                    <Button Grid.Row="2" HorizontalAlignment="Center" Width="200" Content="Odśwież"
                             Command="{Binding FetchFoodsCommand}" />
                 </Grid>
             </TabItem>

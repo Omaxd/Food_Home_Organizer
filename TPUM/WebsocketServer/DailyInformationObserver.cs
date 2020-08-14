@@ -30,9 +30,11 @@ namespace WebsocketServer
         {
             Console.WriteLine("Cyclic message:", value);
             InformationDto code = mapper.ToInformationDto(value.Information);
+
             string body = JsonConvert.SerializeObject(code);
             Message message = new Message() { Action = EndpointAction.PUBLISH_INFORMATION.GetString(), Type = "DailyInfoDto", Body = body };
-            Console.WriteLine($"Promotion: {message}");
+
+            Console.WriteLine($"Daily information: {message}");
 
             await _connection.SendAsync(JsonConvert.SerializeObject(message));
         }
