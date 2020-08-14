@@ -1,11 +1,11 @@
-﻿using LogicLayer.Services.Publisher;
+﻿using LogicLayer.Classes;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 
-namespace WebSocketServerLayer
+namespace WebsocketServer
 {
     public class WebSocketServer : IDisposable
     {

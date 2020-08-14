@@ -14,13 +14,11 @@ namespace LogicLayer.Services
     public class FoodService : IFoodService
     {
         private readonly IFoodRepository _foodRepository;
-
         private readonly DtoModelMapper _modelMapper;
 
         public FoodService()
         {
             _foodRepository = new FoodRepository(DataStore.Instance.State.Foods);
-
             _modelMapper = new DtoModelMapper();
         }
 

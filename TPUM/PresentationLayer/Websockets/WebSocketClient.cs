@@ -24,6 +24,7 @@ namespace PresentationLayer.Websockets
             {
                 WebSocket = new ClientWebSocket();
                 await WebSocket.ConnectAsync(new Uri(_address), CancellationToken.None);
+
                 Trace.WriteLine($"Connecting to server ...");
                 _connection = new SocketConnection(WebSocket, handleResponse);
                 Trace.WriteLine($"Socket connected");

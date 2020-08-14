@@ -1,10 +1,11 @@
 ﻿using PresentationLayer;
+using PresentationLayer.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebSocketServerLayer;
+using WebsocketServer;
 
 namespace Shell
 {
@@ -34,7 +35,7 @@ namespace Shell
         {
             try
             {
-                using WebSocketServerLayer.WebSocketServer websocketServer = new WebSocketServerLayer.WebSocketServer(Log, _address);
+                using WebSocketServer websocketServer = new WebSocketServer(Log, _address);
                 await websocketServer.Listen();
 
                 Console.ReadKey();

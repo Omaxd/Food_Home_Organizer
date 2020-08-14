@@ -38,7 +38,7 @@ namespace LogicLayer.Services
             return createdInformationDto;
         }
 
-        public IList<InformationDto> GetInformations()
+        public IList<InformationDto> GetAllDiscountCodes()
         {
             IList<Information> informations = _informationRepository.GetAll();
             IList<InformationDto> informationDtos = informations

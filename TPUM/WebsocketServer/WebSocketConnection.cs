@@ -3,9 +3,9 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WebSocketServerLayer.Resolver;
+using WebsocketServer.Resolver;
 
-namespace WebSocketServerLayer
+namespace WebsocketServer
 {
     public class WebSocketConnection : IDisposable
     {
@@ -38,7 +38,7 @@ namespace WebSocketServerLayer
                 }
                 else
                 {
-                    var data = Encoding.UTF8.GetString(bytes).TrimEnd('\0');
+                    string data = Encoding.UTF8.GetString(bytes).TrimEnd('\0');
                     data = data.Substring(0);
                     HandleRequest(data);
                 }
@@ -49,15 +49,19 @@ namespace WebSocketServerLayer
         {
             Log("Request: ");
             Log(data);
+
             string response = _requestResolver.Resolve(data);
+
             Log("Response: ");
             Log(response);
+
             await SendAsync(response);
         }
 
         public async Task SendAsync(string message)
         {
             ArraySegment<byte> payload = new ArraySegment<byte>(Encoding.ASCII.GetBytes(message));
+
             await Socket.SendAsync(payload, WebSocketMessageType.Text, true, CancellationToken.None);
         }
 

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.WebSockets;
 using System.Windows.Input;
+using LogicLayer.Classes;
 using LogicLayer.DataTransferObjects;
 using Newtonsoft.Json;
 using PresentationLayer.Commands;
@@ -20,7 +21,7 @@ namespace PresentationLayer.ViewModel
         private InformationDto _currentInformation;
         private SocketConnection _connection;
 
-        private WebSocketClient _websocketClient = new WebSocketClient("ws://localhost:9000/api");
+        private WebSocketClient _webSocketClient = new WebSocketClient("ws://localhost:9000/api");
 
         #region ObservableCollections
         public ObservableCollection<UserDto> Users
@@ -78,18 +79,18 @@ namespace PresentationLayer.ViewModel
         public ICommand FetchFoodsCommand => new RelayCommand(FetchFoods);
         public ICommand InformationsCommand => new RelayCommand(FetchInformations);
 
-        public MainViewModel()
+                public MainViewModel()
         {
         }
 
         private async void CreateConnection()
         {
-            _connection = await _websocketClient.Connect(OnMessageReceived);
+            _connection = await _webSocketClient.Connect(OnMessageReceived);
         }
 
         private async void FetchUsers()
         {
-            if (_websocketClient.WebSocket.State == WebSocketState.Open)
+            if (_webSocketClient.WebSocket.State == WebSocketState.Open)
             {
                 Message messageSent = new Message() {Action = EndpointAction.GET_USERS.GetString()};
 
@@ -98,7 +99,7 @@ namespace PresentationLayer.ViewModel
         }
         private async void FetchFoods()
         {
-            if (_websocketClient.WebSocket.State == WebSocketState.Open)
+            if (_webSocketClient.WebSocket.State == WebSocketState.Open)
             {
                 Message messageSent = new Message() { Action = EndpointAction.GET_FOODS.GetString() };
 
@@ -108,7 +109,7 @@ namespace PresentationLayer.ViewModel
 
         private async void FetchInformations()
         {
-            if (_websocketClient.WebSocket.State == WebSocketState.Open)
+            if (_webSocketClient.WebSocket.State == WebSocketState.Open)
             {
                 Message messageSent = new Message() { Action = EndpointAction.GET_INFORMATIONS.GetString() };
 
@@ -126,17 +127,17 @@ namespace PresentationLayer.ViewModel
             switch (action)
             {
                 case EndpointAction.GET_FOODS:
-                    List<FoodDto> foods = JsonConvert.DeserializeObject<List<FoodDto>>(message.Body);
+                    IList<FoodDto> foods = JsonConvert.DeserializeObject<List<FoodDto>>(message.Body);
                     Foods = new ObservableCollection<FoodDto>(foods);
                     break;
 
                 case EndpointAction.GET_USERS:
-                    List<UserDto> users = JsonConvert.DeserializeObject<List<UserDto>>(message.Body);
+                    IList<UserDto> users = JsonConvert.DeserializeObject<List<UserDto>>(message.Body);
                     Users = new ObservableCollection<UserDto>(users);
                     break;
 
                 case EndpointAction.GET_INFORMATIONS:
-                    List<InformationDto> informations = JsonConvert.DeserializeObject<List<InformationDto>>(message.Body);
+                    IList<InformationDto> informations = JsonConvert.DeserializeObject<List<InformationDto>>(message.Body);
                     Informations = new ObservableCollection<InformationDto>(informations);
                     break;
 

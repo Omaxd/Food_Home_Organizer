@@ -10,7 +10,7 @@ namespace LogicLayer.Interfaces
     {
         InformationDto AddInfomation(InformationDto dto);
 
-        IList<InformationDto> GetInformations();
+        IList<InformationDto> GetAllDiscountCodes();
 
         void DeleteInformation(Guid informationId);
     }

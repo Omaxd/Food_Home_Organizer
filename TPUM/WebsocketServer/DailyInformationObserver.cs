@@ -1,15 +1,17 @@
 ﻿using System;
 using DataLayer.Observer;
+using LogicLayer.Classes;
 using LogicLayer.DataTransferObjects;
 using LogicLayer.ModelMapper;
 using Newtonsoft.Json;
 
-namespace WebSocketServerLayer
+namespace WebsocketServer
 {
     public class DailyInformationObserver : IObserver<InformationEvent>
     {
         private WebSocketConnection _connection;
         private DtoModelMapper mapper = new DtoModelMapper();
+
         public DailyInformationObserver(WebSocketConnection connection)
         {
             _connection = connection;
@@ -17,7 +19,6 @@ namespace WebSocketServerLayer
 
         public void OnCompleted()
         {
-
         }
 
         public async void OnError(Exception error)
@@ -32,6 +33,7 @@ namespace WebSocketServerLayer
             string body = JsonConvert.SerializeObject(code);
             Message message = new Message() { Action = EndpointAction.PUBLISH_INFORMATION.GetString(), Type = "DailyInfoDto", Body = body };
             Console.WriteLine($"Promotion: {message}");
+
             await _connection.SendAsync(JsonConvert.SerializeObject(message));
         }
     }
