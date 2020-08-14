@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
+using WebSocketServerLayer.Constants;
 
 namespace WebsocketServer
 {
@@ -21,7 +22,7 @@ namespace WebsocketServer
             _address = address;
             _listener = new HttpListener();
             _listener.Prefixes.Add(address);
-            _informationPublisher = new InformationPublisher(TimeSpan.FromSeconds(10));
+            _informationPublisher = new InformationPublisher(TimeSpan.FromSeconds(DailyInformationPeriod.InformationRefreshTimeInSeconds));
             _informationPublisher.Start();
         }
 

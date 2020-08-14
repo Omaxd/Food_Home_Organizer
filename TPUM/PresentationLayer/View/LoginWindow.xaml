@@ -8,12 +8,12 @@
         Title="Login" Height="450" Width="400" Background="#373533" FontSize="14">
     <Grid>
         <Label x:Name="lblLogin" Content="Login" HorizontalAlignment="Left" Margin="35,58,0,0" VerticalAlignment="Top" Height="30" Width="100" Foreground="#e0e0e0"/>
-        <TextBox x:Name="tbLogin" TextWrapping="Wrap" Margin="178,58,50,346" Background="#e0e0e0"/>
+        <TextBox x:Name="tbLogin" Height="30" TextWrapping="Wrap" Margin="178,58,50,346" Background="#e0e0e0"/>
 
         <Label x:Name="lblPassword" Content="Hasło" HorizontalAlignment="Left" Margin="35,111,0,0" VerticalAlignment="Top" Height="30" Width="100" Foreground="#e0e0e0"/>
         <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="178,111,0,0" VerticalAlignment="Top" Width="172" Height="30" Background="#e0e0e0"/>
 
-        <Button x:Name="btnLogin" Content="Zaluguj" HorizontalAlignment="Left" Margin="287,374,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnLogin" Content="Zaloguj" HorizontalAlignment="Left" Margin="287,374,0,0" VerticalAlignment="Top" Click="btnLogin_Click"/>
 
     </Grid>
 </Window>

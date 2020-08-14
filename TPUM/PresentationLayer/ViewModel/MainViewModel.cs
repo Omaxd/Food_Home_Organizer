@@ -21,7 +21,7 @@ namespace PresentationLayer.ViewModel
         private InformationDto _currentInformation;
         private SocketConnection _connection;
 
-        private WebSocketClient _webSocketClient = new WebSocketClient("ws://localhost:9000/api");
+        private WebSocketClient _webSocketClient = new WebSocketClient("ws://localhost:9000/api");       
 
         #region ObservableCollections
         public ObservableCollection<UserDto> Users
@@ -81,6 +81,7 @@ namespace PresentationLayer.ViewModel
 
         public MainViewModel()
         {
+            CreateConnection();
         }
 
         private async void CreateConnection()

@@ -44,9 +44,9 @@ namespace LogicLayer.Classes
 
         private  void RaiseTick(long counter)
         {
-            Information discountCode = _informationRepository.GetRandomDiscountCode();
-            InformationEvent promotion = new InformationEvent(discountCode);
-            _informationFeed.PublishPromotion(promotion);
+            Information dailyInformation = _informationRepository.GetRandomInformation();
+            InformationEvent information = new InformationEvent(dailyInformation);
+            _informationFeed.PublishPromotion(information);
         }
 
         public void Dispose()

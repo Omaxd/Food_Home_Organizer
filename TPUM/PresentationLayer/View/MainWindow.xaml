@@ -66,13 +66,10 @@
 
                         </TextBlock>
                     </Grid>
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Margin="107,0,0,0" >
-                        <Button  HorizontalAlignment="Center" Width="300" Content="Połącz z serwerem"
-                                 Command="{Binding ConnectToWebSocketCommand}" />
-                        <StackPanel Width="30"></StackPanel>
-                        <Button HorizontalAlignment="Center" Width="300" Content="Odśwież"
-                            Command="{Binding FetchUsersCommand}" />
-                    </StackPanel>
+
+                    <Button Grid.Row="2" HorizontalAlignment="Center" Width="300" Content="Odśwież"
+                        Command="{Binding FetchUsersCommand}" />
+
                 </Grid>
             </TabItem>
             <TabItem Header="Jedzenie">

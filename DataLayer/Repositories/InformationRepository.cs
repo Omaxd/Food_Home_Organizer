@@ -12,7 +12,7 @@ namespace DataLayer.Repositories
         {
         }
 
-        public Information GetRandomDiscountCode()
+        public Information GetRandomInformation()
         {
             Random random = new Random();
             int index = random.Next(database.Count);

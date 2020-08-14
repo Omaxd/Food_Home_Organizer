@@ -21,5 +21,12 @@ namespace PresentationLayer.View
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            this.Hide();
+            window.ShowDialog();
+        }
     }
 }

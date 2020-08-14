@@ -49,7 +49,7 @@ namespace Shell
 
         private static void RunClient()
         {
-            MainWindow client = new MainWindow();
+            LoginWindow client = new LoginWindow();
             client.ShowDialog();
         }
     }
