@@ -9,6 +9,8 @@ namespace LogicLayer.Interfaces
     {
         UserDto GetUserById(Guid id);
 
+        UserDto GetUserByLoginAndPassword(string login, string password);
+
         IList<UserDto> GetAllUsers();
 
         UserDto AddUser(UserDto dto);

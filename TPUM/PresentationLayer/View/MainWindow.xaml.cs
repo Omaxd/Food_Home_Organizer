@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using PresentationLayer.StaticResources;
+using System.Windows;
 
 namespace PresentationLayer.View
 {
@@ -10,6 +11,7 @@ namespace PresentationLayer.View
         public MainWindow()
         {
             InitializeComponent();
+            Title += $" ({ApplicationInfo.User.FirstName})";
         }
     }
 }

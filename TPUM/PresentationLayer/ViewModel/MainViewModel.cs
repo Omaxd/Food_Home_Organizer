@@ -19,9 +19,8 @@ namespace PresentationLayer.ViewModel
         private ObservableCollection<InformationDto> _informations;
         private ObservableCollection<FoodDto> _cart = new ObservableCollection<FoodDto>();
         private InformationDto _currentInformation;
-        private SocketConnection _connection;
 
-        private WebSocketClient _webSocketClient = new WebSocketClient("ws://localhost:9000/api");       
+   
 
         #region ObservableCollections
         public ObservableCollection<UserDto> Users
@@ -74,51 +73,74 @@ namespace PresentationLayer.ViewModel
         }
         #endregion
 
-        public ICommand ConnectToWebSocketCommand => new RelayCommand(CreateConnection);
-        public ICommand FetchUsersCommand => new RelayCommand(FetchUsers);
-        public ICommand FetchFoodsCommand => new RelayCommand(FetchFoods);
-        public ICommand FetchInformationsCommand => new RelayCommand(FetchInformations);
+        public ICommand FetchUsersCommand
+        {
+            get
+            {
+                return new RelayCommand((x) =>
+                {
+                    { FetchUsers(); }
+                });
+            }
+        }
+
+        public ICommand FetchFoodsCommand
+        {
+            get
+            {
+                return new RelayCommand((x) =>
+                {
+                    { FetchFoods(); }
+                });
+            }
+        }
+
+        public ICommand FetchInformationsCommand
+        {
+            get
+            {
+                return new RelayCommand((x) =>
+                {
+                    { FetchInformations(); }
+                });
+            }
+        }
 
         public MainViewModel()
         {
             CreateConnection();
         }
 
-        private async void CreateConnection()
-        {
-            _connection = await _webSocketClient.Connect(OnMessageReceived);
-        }
-
         private async void FetchUsers()
         {
-            if (_webSocketClient.WebSocket.State == WebSocketState.Open)
+            if (webSocketClient.WebSocket.State == WebSocketState.Open)
             {
                 Message messageSent = new Message() {Action = EndpointAction.GET_USERS.GetString()};
 
-                await _connection.SendAsync(messageSent.ToString());
+                await connection.SendAsync(messageSent.ToString());
             }
         }
         private async void FetchFoods()
         {
-            if (_webSocketClient.WebSocket.State == WebSocketState.Open)
+            if (webSocketClient.WebSocket.State == WebSocketState.Open)
             {
                 Message messageSent = new Message() { Action = EndpointAction.GET_FOODS.GetString() };
 
-                await _connection.SendAsync(messageSent.ToString());
+                await connection.SendAsync(messageSent.ToString());
             }
         }
 
         private async void FetchInformations()
         {
-            if (_webSocketClient.WebSocket.State == WebSocketState.Open)
+            if (webSocketClient.WebSocket.State == WebSocketState.Open)
             {
                 Message messageSent = new Message() { Action = EndpointAction.GET_INFORMATIONS.GetString() };
 
-                await _connection.SendAsync(messageSent.ToString());
+                await connection.SendAsync(messageSent.ToString());
             }
         }
 
-        private void OnMessageReceived(string data)
+        protected override void OnMessageReceived(string data)
         {
             Trace.WriteLine("RECEIVED:");
             Trace.WriteLine(data);

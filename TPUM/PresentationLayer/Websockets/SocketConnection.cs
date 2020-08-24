@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.Websockets
 {
-    class SocketConnection : IDisposable
+    public class SocketConnection : IDisposable
     {
         public WebSocket Socket { get; }
         public Action<string> OnHandleResponse { get; }

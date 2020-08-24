@@ -1,4 +1,5 @@
 ﻿using PresentationLayer;
+using PresentationLayer.StaticResources;
 using PresentationLayer.View;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Shell
     {
         private static readonly Action<string> Log = Console.WriteLine;
         private static readonly string _address = "http://localhost:9000/api/";
+        private static readonly string _clientAddress = "ws://localhost:9000/api/";
 
         public async static Task RunApplication(string mode)
         {
@@ -49,8 +51,15 @@ namespace Shell
 
         private static void RunClient()
         {
+            ApplicationInfo.WebSocketAddress = _clientAddress;
             LoginWindow client = new LoginWindow();
             client.ShowDialog();
+
+            if (ApplicationInfo.User != null)
+            {
+                MainWindow client2 = new MainWindow();
+                client2.ShowDialog();
+            }
         }
     }
 }

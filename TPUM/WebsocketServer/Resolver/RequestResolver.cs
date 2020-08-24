@@ -24,11 +24,11 @@ namespace WebsocketServer.Resolver
 
         public string Resolve(string message)
         {
-            Message msgObj = JsonConvert.DeserializeObject<Message>(message);
+            Message messageObject = JsonConvert.DeserializeObject<Message>(message);
             EndpointAction action;
             Message response;
 
-            Enum.TryParse(msgObj.Action, out action);
+            Enum.TryParse(messageObject.Action, out action);
 
             switch (action)
             {
@@ -45,6 +45,12 @@ namespace WebsocketServer.Resolver
                 case EndpointAction.GET_INFORMATIONS:
                     IEnumerable<InformationDto> discountCodes = _discountCodeService.GetAllDiscountCodes();
                     response = new Message() { Action = EndpointAction.GET_INFORMATIONS.GetString(), Body = JsonConvert.SerializeObject(discountCodes), Type = "Array:Informations" };
+                    break;
+
+                case EndpointAction.LOGIN:
+                    UserDto loginAndPassword = JsonConvert.DeserializeObject<UserDto>(messageObject.Body);
+                    UserDto user = _userService.GetUserByLoginAndPassword(loginAndPassword.Login, loginAndPassword.Password);
+                    response = new Message() { Action = EndpointAction.LOGIN.GetString(), Body = JsonConvert.SerializeObject(user), Type = "UserDto" };
                     break;
 
                 default:

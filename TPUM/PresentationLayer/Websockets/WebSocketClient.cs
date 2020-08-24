@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.Websockets
 {
-    class WebSocketClient: IDisposable
+    public class WebSocketClient : IDisposable
     {
         private readonly string _address;
         public ClientWebSocket WebSocket { get; private set; }    
@@ -18,7 +18,8 @@ namespace PresentationLayer.Websockets
             _address = address;
             WebSocket = new ClientWebSocket();
         }
-        public async Task<SocketConnection> Connect(Action<string> handleResponse)
+
+        internal async Task<SocketConnection> Connect(Action<string> handleResponse)
         {
             try
             {

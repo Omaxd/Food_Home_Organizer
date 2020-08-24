@@ -8,6 +8,7 @@ namespace LogicLayer.DataTransferObjects
         GET_USERS,
         GET_INFORMATIONS,
         PUBLISH_INFORMATION,
+        LOGIN
 
     }
     public static class EndpointActionMethods

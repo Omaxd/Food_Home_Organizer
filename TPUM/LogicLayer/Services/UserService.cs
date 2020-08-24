@@ -36,6 +36,14 @@ namespace LogicLayer.Services
             return userDto;
         }
 
+        public UserDto GetUserByLoginAndPassword(string login, string password)
+        {
+            User user = _userRepository.GetUserByLoginAndPassword(login, password);
+            UserDto userDto = _modelMapper.ToUserDto(user);
+
+            return userDto;
+        }
+
         public IList<UserDto> GetAllUsers()
         {
             IList<User> users = _userRepository.GetAll();

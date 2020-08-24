@@ -19,6 +19,11 @@ namespace LogicLayer.DataTransferObjects
         public string Login { get; set; }
 
         [Required]
+        [MinLength(5)]
+        [MaxLength(30)]
+        public string Password { get; set; }
+
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
 

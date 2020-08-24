@@ -7,5 +7,6 @@ namespace DataLayer.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
+        User GetUserByLoginAndPassword(string login, string password);
     }
 }

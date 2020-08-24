@@ -1,6 +1,9 @@
-﻿using System;
+﻿using PresentationLayer.Interfaces;
+using PresentationLayer.StaticResources;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,18 +18,33 @@ namespace PresentationLayer.View
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginWindow : Window, ISecurePassword
     {
+        public bool isOpen = true;
         public LoginWindow()
         {
             InitializeComponent();
         }
 
+        public string Login
+        {
+            get
+            {
+                return tbLogin.Text;
+            }
+        }
+
+        public System.Security.SecureString Password
+        {
+            get
+            {
+                return pbPassword.SecurePassword;
+            }
+        }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
-            this.Hide();
-            window.ShowDialog();
+            if (ApplicationInfo.User != null)
+                Close();
         }
     }
 }

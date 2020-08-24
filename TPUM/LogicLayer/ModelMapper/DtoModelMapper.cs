@@ -54,6 +54,9 @@ namespace LogicLayer.ModelMapper
         {
             T mappedObject = new T();
 
+            if (item == null)
+                return mappedObject;
+
             PropertyInfo[] properties = item.GetType().GetProperties();
             PropertyInfo[] mappedProperties = mappedObject.GetType().GetProperties();
 

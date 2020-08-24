@@ -35,6 +35,7 @@ namespace DataLayer
                 {
                     new User
                     {
+                        Id = new System.Guid(),
                         Login = "Julia123",
                         Email = "julga@yahoo.com", 
                         Password = "haslo1234@",
@@ -44,6 +45,7 @@ namespace DataLayer
 
                     new User
                     {
+                        Id = new System.Guid(),
                         Login = "TurboSzymek",
                         Email = "szymi133@o2.pl",
                         Password = "userXd",
@@ -53,9 +55,21 @@ namespace DataLayer
 
                     new User
                     {
+                        Id = new System.Guid(),
                         Login = "ElTomek",
+                        Password = "userXd",
                         Email = "tomcioxd@gmail.eu", 
                         FirstName = "Tomek", 
+                        Phone = "122333444",
+                    },
+
+                    new User
+                    {
+                        Id = new System.Guid(),
+                        Login = "Test",
+                        Password = "test123",
+                        Email = "test123@gmail.eu",
+                        FirstName = "Tester",
                         Phone = "122333444",
                     }
                 },

@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using System.Windows.Input;
 
 namespace PresentationLayer.Commands
 {
     public class RelayCommand : ICommand
     {
-        private readonly Action _action;
+        private readonly Action<object> _action;
 
         public event EventHandler CanExecuteChanged;
 
-        public RelayCommand(Action action)
+        public RelayCommand(Action<object> action)
         {
-            _action = action ?? throw new ArgumentNullException(nameof(action));
+            _action = action;
         }
+
 
         public bool CanExecute(object parameter)
         {
@@ -21,7 +23,7 @@ namespace PresentationLayer.Commands
 
         public void Execute(object parameter)
         {
-            _action.Invoke();
+            _action.Invoke(parameter);
         }
     }
 }
