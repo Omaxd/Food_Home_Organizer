@@ -5,11 +5,11 @@ namespace LogicLayer.Classes
 {
     public class HotShotMessage : EventArgs
     {
-        public InformationDto DiscountCode { get; private set; }
+        public InformationDto Information { get; private set; }
 
-        public HotShotMessage(InformationDto discountCode)
+        public HotShotMessage(InformationDto information)
         {
-            DiscountCode = discountCode;
+            Information = information;
         }
     }
 }

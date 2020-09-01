@@ -63,3 +63,6 @@ dkms.conf
 /TPUM/WebsocketServer/bin/Debug/netcoreapp3.1
 /TPUM/WebsocketServer/obj
 /TPUM/.vs/FoodHomeOrganizer/DesignTimeBuild/.dtbcache.v2
+/TPUM/UnitTest.LogicLayer/bin/Debug/netcoreapp3.1
+/TPUM/UnitTest.LogicLayer/obj/Debug/netcoreapp3.1
+/TPUM/UnitTest.LogicLayer/obj

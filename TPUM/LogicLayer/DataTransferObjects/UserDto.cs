@@ -8,6 +8,8 @@ namespace LogicLayer.DataTransferObjects
     {
         public Guid? Id { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         [Required]
         [MinLength(2)]
         [MaxLength(50)]
