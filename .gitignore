@@ -66,3 +66,9 @@ dkms.conf
 /TPUM/UnitTest.LogicLayer/bin/Debug/netcoreapp3.1
 /TPUM/UnitTest.LogicLayer/obj/Debug/netcoreapp3.1
 /TPUM/UnitTest.LogicLayer/obj
+/TPUM/IntegrationTest.LogicLayer/obj/Debug/netcoreapp3.1
+/TPUM/IntegrationTest.LogicLayer/obj
+/TPUM/IntegrationTest.LogicLayer/bin/Debug/netcoreapp3.1
+/TPUM/IntegrationTest.WebSocketServerLayer/obj/Debug/netcoreapp3.1
+/TPUM/IntegrationTest.WebSocketServerLayer/bin/Debug/netcoreapp3.1
+/TPUM/IntegrationTest.WebSocketServerLayer/obj

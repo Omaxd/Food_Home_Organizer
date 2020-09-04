@@ -6,7 +6,7 @@ using System;
 
 namespace UnitTest.LogicLayer
 {
-    public class Tests
+    public class DtoMapperTest
     {
         [SetUp]
         public void Setup()
@@ -15,7 +15,7 @@ namespace UnitTest.LogicLayer
 
         #region From model to DTO
         [Test]
-        public void LogicLayer_DtoMapperModel_MapFoodFromModelToDto()
+        public void ToFoodDto_MapFoodFromModelToDto()
         {
             Guid id = new Guid("0f8fad5b-d9cb-469f-a165-70867728950e");
             string name = "Test food";
@@ -44,7 +44,7 @@ namespace UnitTest.LogicLayer
         }
 
         [Test]
-        public void LogicLayer_DtoMapperModel_MapUserFromModelToDto()
+        public void ToUserDto_MapUserFromModelToDto()
         {
             Guid id = new Guid("0f8fad5b-d9cb-469f-a165-70867728950e");
             string login = "Login test";
@@ -70,7 +70,7 @@ namespace UnitTest.LogicLayer
         }
 
         [Test]
-        public void LogicLayer_DtoMapperModel_MapInformationFromModelToDto()
+        public void ToInformationDto_MapInformationFromModelToDto()
         {
             Guid id = new Guid("0f8fad5b-d9cb-469f-a165-70867728950e");
             string content = "Content test";
@@ -95,7 +95,7 @@ namespace UnitTest.LogicLayer
 
         #region From DTO to model
         [Test]
-        public void LogicLayer_DtoMapperModel_MapFoodFromDtoToModel()
+        public void FromFoodDto_MapFoodFromDtoToModel()
         {
             Guid id = new Guid("0f8fad5b-d9cb-469f-a165-70867728950e");
             string name = "Test food";
@@ -124,7 +124,7 @@ namespace UnitTest.LogicLayer
         }
 
         [Test]
-        public void LogicLayer_DtoMapperModel_MapUserFromDtoToModel()
+        public void FromUserDto_MapUserFromDtoToModel()
         {
             Guid id = new Guid("0f8fad5b-d9cb-469f-a165-70867728950e");
             string login = "Login test";
@@ -150,7 +150,7 @@ namespace UnitTest.LogicLayer
         }
 
         [Test]
-        public void LogicLayer_DtoMapperModel_MapInformationFromDtoToModel()
+        public void FromInformationDto_MapInformationFromDtoToModel()
         {
             Guid id = new Guid("0f8fad5b-d9cb-469f-a165-70867728950e");
             string content = "Content test";

@@ -77,6 +77,7 @@ namespace DataLayer
                 {
                     new Food
                     {
+                        Id = new System.Guid(),
                         Name = "Jajko",
                         Kcal = 145,
                         Protein = 14,

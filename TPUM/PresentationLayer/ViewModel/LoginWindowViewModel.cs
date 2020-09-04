@@ -20,7 +20,7 @@ using PresentationLayer.Websockets;
 
 namespace PresentationLayer.ViewModel
 {
-    internal class LoginWindowViewModel : BaseViewModel
+    public class LoginWindowViewModel : BaseViewModel
     {
         private LoginWindow _window;
 

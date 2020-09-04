@@ -80,6 +80,9 @@ namespace WebsocketServer
         public void Dispose()
         {
            Connections.ForEach(connection => connection?.Dispose());
+            _listener.Close();
+            //_listener.Stop();
+            _informationPublisher.End();
         }
     }
 }
